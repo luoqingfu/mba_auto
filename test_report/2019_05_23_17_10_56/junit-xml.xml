@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="1" name="pytest" skipped="0" tests="3" time="35.691"><testcase classname="test_dir.test_discover.TestDiscover" file="test_dir/test_discover.py" line="5" name="test_open" time="6.862"></testcase><testcase classname="test_dir.test_index.TestIndex" file="test_dir/test_index.py" line="7" name="test_title" time="1.075"></testcase><testcase classname="test_dir.test_vip.Testvip" file="test_dir/test_vip.py" line="7" name="test_vipopen" time="25.536"><failure message="AssertionError: assert &apos;登录或注册 | EliteMBA&apos; == &apos;会员资格 | 英荔商学院&apos;
+  - 登录或注册 | EliteMBA
+  + 会员资格 | 英荔商学院">self = &lt;test_dir.test_vip.Testvip object at 0x10bae6b38&gt;
+browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;cd2920c1264645d2ee24c2078c5126ae&quot;)&gt;
+base_url = &apos;https://www.elitemba.cn/&apos;
+
+    def test_vipopen(self, browser, base_url):
+        &quot;&quot;&quot;进入vip页，&quot;&quot;&quot;
+        page = VipPage(browser)
+        page.get(base_url+&apos;vip&apos;)
+        page.vip_banner.click()
+        page.login_input = &apos;账号&apos;
+        page.pwd_input = &apos;密码&apos;
+        page.login_btn.click()
+        sleep(2)
+        title = page.get_title
+&gt;       assert title == &apos;会员资格 | 英荔商学院&apos;
+E       AssertionError: assert &apos;登录或注册 | EliteMBA&apos; == &apos;会员资格 | 英荔商学院&apos;
+E         - 登录或注册 | EliteMBA
+E         + 会员资格 | 英荔商学院
+
+test_dir/test_vip.py:18: AssertionError</failure></testcase></testsuite>
